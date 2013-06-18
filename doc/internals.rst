@@ -1,8 +1,8 @@
-Internals
+Internamente
 =========
 
-This chapter will tell you a bit about how Silex works
-internally.
+Este capítulo irá contar um pouco sobre como funciona o Silex
+internamente.
 
 Silex
 -----
@@ -10,25 +10,25 @@ Silex
 Application
 ~~~~~~~~~~~
 
-The application is the main interface to Silex. It implements Symfony2's
+Application é a interface de comunicação principal para o Silex. Ela implementa a feature do Symfony2
 `HttpKernelInterface
 <http://api.symfony.com/master/Symfony/Component/HttpKernel/HttpKernelInterface.html>`_,
-so you can pass a `Request
+então você pode passar `Request
 <http://api.symfony.com/master/Symfony/Component/HttpFoundation/Request.html>`_
-to the ``handle`` method and it will return a `Response
+para o metodo ``handle`` e assim ele retornará `Response
 <http://api.symfony.com/master/Symfony/Component/HttpFoundation/Response.html>`_.
 
-It extends the ``Pimple`` service container, allowing for flexibility on the
-outside as well as the inside. You could replace any service, and you are also
-able to read them.
+Ele herda do serviço ``Pimple``, permitindo assim flexibilidade dentro e fora de sua aplicação
+. Você pode substituir qualquer serviço, e você também é
+capaz de lê-los.
 
-The application makes strong use of the `EventDispatcher
+O Application faz uso de `EventDispatcher
 <http://api.symfony.com/master/Symfony/Component/EventDispatcher/EventDispatcher.html>`_
-to hook into the Symfony2 `HttpKernel
+para disparar eventos usa-se do Symfony2 `HttpKernel
 <http://api.symfony.com/master/Symfony/Component/HttpKernel/HttpKernel.html>`_
-events. This allows fetching the ``Request``, converting string responses into
-``Response`` objects and handling Exceptions. We also use it to dispatch some
-custom events like before/after middlewares and errors.
+. Isso permite buscar o ``Request``, convertendo respostas em
+objetos ``Response`` e exceções de manipulação. Nós também podemos usá-lo para despachar alguns
+eventos personalizados como antes/depois , middlewares e erros.
 
 Controller
 ~~~~~~~~~~
